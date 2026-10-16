@@ -15,6 +15,8 @@ A bash script for Ubiquiti EdgeRouters (EdgeOS 3.x) that keeps the DNSSEC root t
 - Runs weekly through the EdgeOS task scheduler and needs only tools already on the router (`bash`, `curl`, `openssl`, `vbash`, Python).
 [Full documentation and installation steps](./RootAnchorsUpdater/README.md)
 
+<img width="956" height="239" alt="anchor-updater-check" src="https://github.com/user-attachments/assets/edfc9260-355e-4c79-a815-49b553db3532" />
+
 # EdgeRouter Feature Wizards
 This repo contains several feature wizards for EdgeRouter's EdgeOS.
 
