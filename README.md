@@ -1,3 +1,20 @@
+# Scripts
+
+### EdgeRouter DNSSEC Root Trust-Anchor Updater
+ 
+A bash script for Ubiquiti EdgeRouters (EdgeOS 3.x) that keeps the DNSSEC root trust anchors of the router's DNS forwarder (dnsmasq) up to date.
+ 
+**Purpose:** dnsmasq does not update root trust anchors on its own. When the root zone introduces a new key and the matching anchor is missing, DNS validation fails and the internet appears to be down. This script adds new anchors automatically, ahead of time.
+ 
+**What it does:**
+ 
+- Downloads IANA's signed trust-anchor list, with fallbacks (the router's DNS, then direct DNS lookups, then http) for when broken DNS blocks the download.
+- Verifies the signature against the ICANN Root CA before trusting any data.
+- Adds anchors that are valid now or become valid within a configurable lookahead (default 30 days), and saves them to the persistent config.
+- Only adds, never deletes. Any failure means no change, with a clear log and syslog message.
+- Runs weekly through the EdgeOS task scheduler and needs only tools already on the router (`bash`, `curl`, `openssl`, `vbash`, Python).
+[Full documentation and installation steps](./RootAnchorsUpdater/README.md)
+
 # EdgeRouter Feature Wizards
 This repo contains several feature wizards for EdgeRouter's EdgeOS.
 
