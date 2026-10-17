@@ -2,7 +2,7 @@
 
 ### EdgeRouter DNSSEC Root Trust-Anchor Updater
  
-A bash script for Ubiquiti EdgeRouters (EdgeOS 3.x) that keeps the DNSSEC root trust anchors of the router's DNS forwarder (dnsmasq) up to date.
+A bash script for Ubiquiti EdgeRouters (tested on EdgeOS 3.x) that keeps the DNSSEC root trust anchors of the router's DNS forwarder (dnsmasq) up to date.
  
 **Purpose:** dnsmasq does not update root trust anchors on its own. When the root zone introduces a new key and the matching anchor is missing, DNS validation fails and the internet appears to be down. This script adds new anchors automatically, ahead of time.
  
